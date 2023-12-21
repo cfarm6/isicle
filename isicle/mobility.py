@@ -120,7 +120,7 @@ class MobcalWrapper(XYZGeometry, WrapperInterface):
         self.command = command
 
     def submit(self):
-        subprocess.call('{} {} {} {} {} &> {}'.format(self.command,
+        subprocess.call('{} {} {} {} {} > {}'.format(self.command,
                                                       self.mobcal_params,
                                                       self.atom_params,
                                                       self.infile,

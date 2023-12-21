@@ -180,6 +180,7 @@ class XTBWrapper(XYZGeometry, WrapperInterface):
         s += "&>" + " "
 
         s += "{}.{}".format(self.basename, "out")
+        print(s)
         return s
 
     def _configure_crest(
@@ -277,7 +278,7 @@ class XTBWrapper(XYZGeometry, WrapperInterface):
             s += "--noreftopo "
 
         # Add output
-        s += "&>" + " "
+        s += ">" + " "
 
         s += os.path.join(self.temp_dir, "{}.{}".format(self.basename, "out"))
 
@@ -377,7 +378,10 @@ class XTBWrapper(XYZGeometry, WrapperInterface):
         owd = os.getcwd()
         os.chdir(self.temp_dir)
         job = self.config
+        print(job)
         subprocess.call(job, shell=True)
+        # os.system(job)
+        print("FINISHED")
         os.chdir(owd)
 
     def finish(self):
